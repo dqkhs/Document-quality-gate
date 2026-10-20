@@ -13,16 +13,16 @@ def main():
         with open(file_path, "r", encoding="utf-8") as f:
             content = f.read()
     except FileNotFoundError:
-        print(f"❌ Error: File '{file_path}' not found.")
+        print(f" Error: File '{file_path}' not found.")
         sys.exit(1)
 
     errors = validate_document(content)
 
     if not errors:
-        print(f"✅ QUALITY GATE PASSED: '{file_path}' satisfies all requirements!")
+        print(f" QUALITY GATE PASSED: '{file_path}' satisfies all requirements!")
         sys.exit(0)
     else:
-        print(f"❌ QUALITY GATE FAILED: '{file_path}' has errors:")
+        print(f" QUALITY GATE FAILED: '{file_path}' has errors:")
         for err in errors:
             print(f"   - {err}")
         sys.exit(1)
